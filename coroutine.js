@@ -1,6 +1,6 @@
 /**
  * Created by JetBrains WebStorm.
- * User: user
+ * User: napthats
  * Date: 12/01/28
  * Time: 11:24
  * To change this template use File | Settings | File Templates.
@@ -41,7 +41,10 @@ if (!com.napthats.coroutine) com.napthats.coroutine = {};
                     var r = yieldFunc.next();
                 }
                 catch(e) {
-                    throw {name: 'IllegalCoroutineError', message: 'coroutines have to return(yield) value finally.'};
+                    //throw {name: 'IllegalCoroutineError', message: 'coroutines have to return(yield) value finally.'};
+                    finished = true;
+                    if(callBack) callBack();
+                    return;
                 }
                 if(r === undefined) return;
                 funcResult = r;
@@ -110,16 +113,14 @@ if (!com.napthats.coroutine) com.napthats.coroutine = {};
 
         var task = taskList.putTask(origFunc);
 
-        result.getResult = function(resultVar) {
+        result.getResult = function(resultFunc) {
             if(task.isFinished()) {
-                //resultVar = task.getFuncResult();
-                resultVar(task.getFuncResult());
+                resultFunc(task.getFuncResult());
             }
             else {
                 var awake = taskList.getCurrentTask().wait();
                 task.setCallback(function(){
-                    //resultVar = task.getFuncResult();
-                    resultVar(task.getFuncResult());
+                    resultFunc(task.getFuncResult());
                     awake();
                 });
             }
@@ -129,19 +130,21 @@ if (!com.napthats.coroutine) com.napthats.coroutine = {};
     };
 
     ns.sleepCurrentCoroutine = function(ms) {
+        setTimeout(taskList.getCurrentTask().wait(), ms);
+    };
+
+    ns.prepareCallback = function(func) {
         var awake = taskList.getCurrentTask().wait();
-        setTimeout(awake, ms);
+        return function(x) {func(x); awake();};
     };
 
     var finallyFunc;
-
     var run = function() {
         var task = taskList.getNextTask();
         if(!task) {finallyFunc(); return;}
         task.execute();
         setTimeout(run, LOOP_WAIT);
     };
-
     ns.start = function(func) {
         finallyFunc = func;
         run();
