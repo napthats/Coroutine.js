@@ -23,19 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="coroutine.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="coroutine.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/coroutine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0">
+            <state line="24" column="24" selection-start="595" selection-end="595" vertical-scroll-proportion="0.3858521">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sample.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="sample.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sample/sample.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="673" selection-end="673" vertical-scroll-proportion="0.40192926">
+            <state line="41" column="33" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -44,7 +44,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sample/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="7" selection-start="459" selection-end="459" vertical-scroll-proportion="-6.875">
+            <state line="3" column="6" selection-start="124" selection-end="124" vertical-scroll-proportion="-1.875">
               <folding />
             </state>
           </provider>
@@ -64,9 +64,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/sample/index.html" />
         <option value="$PROJECT_DIR$/sample/sample.js" />
         <option value="$PROJECT_DIR$/coroutine.js" />
-        <option value="$PROJECT_DIR$/sample/index.html" />
       </list>
     </option>
   </component>
@@ -258,21 +258,21 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/sample/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="7" selection-start="459" selection-end="459" vertical-scroll-proportion="-6.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coroutine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0">
+        <state line="3" column="6" selection-start="124" selection-end="124" vertical-scroll-proportion="-1.875">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sample/sample.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="673" selection-end="673" vertical-scroll-proportion="0.40192926">
+        <state line="41" column="33" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coroutine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="24" selection-start="595" selection-end="595" vertical-scroll-proportion="0.3858521">
           <folding />
         </state>
       </provider>
