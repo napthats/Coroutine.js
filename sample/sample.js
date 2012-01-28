@@ -32,25 +32,26 @@ $(document).ready(function() {
     cr.makeCoroutine(function() {
         yield;
         yield;
-        //an order of calculation will be changed if comment-in the following line
-        //yield;
+        //an order of calculation will be changed if comment-out the following line
+        yield;
         alert('another coroutine');
     });
 
     //another coroutine using sleepCurrentCroutine
     cr.makeCoroutine(function() {
-        //sleep 3 sec
-        cr.sleepCurrentCoroutine(3000);
+        //sleep 5 sec by two ways
+        cr.sleepCurrentCoroutine(5000);
+        //setTimeout(cr.prepareCallback(), 5000);
         yield;
-        alert('yet another coroutine sleeping 3 sec');
+        alert('yet another coroutine sleeping 5 sec');
     });
 
     //another coroutine using prepareCallback
     cr.makeCoroutine(function() {
         //get a result from other functions with callback
         var result;
-        var cb = cr.prepareCallback(function(r){result = r});
-        setTimeout(function(){cb('result of setTimeout callback')}, 5000);
+        var cb = cr.prepareCallback();
+        setTimeout(function(){result = 'result of setTimeout callback'; cb();}, 10000);
         yield;
         alert('get a result : ' + result);
     });

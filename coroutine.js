@@ -20,13 +20,13 @@ if (!com.napthats.coroutine) com.napthats.coroutine = {};
         var taskList = [];
         var currentTaskOrd = 0;
 
-        result.putTask = function(_yieldFunc) {
+        result.putTask = function(origFunc) {
             var result = {};
             var funcResult;
             var callBack;
             var finished = false;
             var ready = true;
-            var yieldFunc = _yieldFunc();
+            var generator = origFunc();
 
             result.isFinished = function() {
                 return finished;
@@ -38,7 +38,7 @@ if (!com.napthats.coroutine) com.napthats.coroutine = {};
 
             result.execute = function() {
                 try {
-                    var r = yieldFunc.next();
+                    var r = generator.next();
                 }
                 catch(e) {
                     //throw {name: 'IllegalCoroutineError', message: 'coroutines have to return(yield) value finally.'};
@@ -133,9 +133,8 @@ if (!com.napthats.coroutine) com.napthats.coroutine = {};
         setTimeout(taskList.getCurrentTask().wait(), ms);
     };
 
-    ns.prepareCallback = function(func) {
-        var awake = taskList.getCurrentTask().wait();
-        return function(x) {func(x); awake();};
+    ns.prepareCallback = function() {
+        return taskList.getCurrentTask().wait();
     };
 
     var finallyFunc;
@@ -149,6 +148,4 @@ if (!com.napthats.coroutine) com.napthats.coroutine = {};
         finallyFunc = func;
         run();
     };
-
-
 })();
